@@ -33,6 +33,10 @@ int testHammingAlgorithm()
     index++;
   }
 
+  ///
+  /// compare string 1 and string 2 to get the hamming distance.
+  ///
+
   int diff = 0;
   for (int i = 0; i < 32; i++) {
     if (buf_1[i] != buf_2[i])
