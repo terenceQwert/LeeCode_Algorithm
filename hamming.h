@@ -1,4 +1,4 @@
 #pragma once
 
-void testHammingAlgorithm();
+int testHammingAlgorithm();
 

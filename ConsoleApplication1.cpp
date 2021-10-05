@@ -2,7 +2,10 @@
 //
 
 #include <iostream>
+#include "TreeNode.h"
 #include "hamming.h"
+#include "recursive.h"
+
 #define STR_1 "STRING 1"
 #define STR_2 "STRING 2"
 #define STR_3 "STRING 3"
@@ -76,20 +79,7 @@ void LeeCodeBackSpace()
   return;
 }
 
-class TreeNode
-{
-public:
-  int val;
-  TreeNode(int val) { this->val = val; }
-  TreeNode() { val = 0; }
-  TreeNode *left;
-  TreeNode * right;
-};
 
-typedef enum Side {
-  LEFT,
-  RIGHT
-};
 
 void _AddNode(TreeNode **root, int val)
 {
@@ -142,48 +132,7 @@ void _MakeTree(TreeNode **tree)
 
 
 
-int GetDepth(TreeNode * root, int target)
-{
-  if (root == NULL)
-  {
-    printf("val = NULL\n");
-    return -1;
-  } 
-  printf("val = %d\n", root->val);
-  if (root->val == target)
-  {
-    return 0;
-  }
-  int LeftDepth = GetDepth(root->left, target);
-  if (LeftDepth != -1)
-    return LeftDepth+=1;
 
-  int RightDepth = GetDepth(root->right, target);
-  if (RightDepth != -1)
-
-    return RightDepth += 1;
-
-  // not found
-  return -1;
-}
-
-void DiameterOfBinaryTree()
-{
-  TreeNode *root = NULL;
-  _MakeTree(&root);
-
-  ///
-  int depth = GetDepth(root, 86);
-  depth = GetDepth(root, 59);
-  
-  /// given a 'not found' case 
-  depth = GetDepth(root, 101);
-  int maxDepthValue = MaxDeepth(root);
-
-  printf("-------\n");
-  printf("max depth:%d\n", maxDepthValue);
-  printf("-------\n");
-}
 
 int main()                                       
 {

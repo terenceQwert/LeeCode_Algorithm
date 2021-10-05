@@ -154,9 +154,12 @@
   <ItemGroup>
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="hamming.cpp" />
+    <ClCompile Include="recursive.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hamming.h" />
+    <ClInclude Include="recursive.h" />
+    <ClInclude Include="TreeNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
