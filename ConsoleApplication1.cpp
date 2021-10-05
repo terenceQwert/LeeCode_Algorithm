@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-
+#include "hamming.h"
 #define STR_1 "STRING 1"
 #define STR_2 "STRING 2"
 #define STR_3 "STRING 3"
@@ -140,11 +140,6 @@ void _MakeTree(TreeNode **tree)
 
 }
 
-void testHammingAlgorithm()
-{
-
-
-}
 
 
 int GetDepth(TreeNode * root, int target)
@@ -192,6 +187,7 @@ void DiameterOfBinaryTree()
 
 int main()                                       
 {
+  testHammingAlgorithm();
   DiameterOfBinaryTree();
   LeeCodeBackSpace();
   testMethod();
