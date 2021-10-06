@@ -74,19 +74,18 @@ void moveZero(int* nums, int numSize)
 {
   // input: [3,0,1,12,0]
   // output:[3,1,12,0,0]
-
-  for (int i = 0; i < numSize; i++)
-  {
-    for (int j = i; (j < numSize - 1); j++)
+  int* newNums = new int[numSize] {0};
+  int newIndex = 0;
+  for (int i = 0; i < numSize; i++) {
+    if (nums[i] != 0)
     {
-      if (nums[j] != 0)
-        break;
-      if (nums[j + 1] == 0)
-        continue;
-      _switch(nums, j);
+      newNums[newIndex] = nums[i];
+      newIndex++;
     }
   }
+  memcpy(nums, newNums, numSize);
 }
+
 int* twoSum(int* array, int numSize, int targetNum)
 {
   PHashTable phashTable = new HashTable[numSize]{ 0 };
@@ -114,11 +113,10 @@ int* twoSum(int* array, int numSize, int targetNum)
 
 }
 
-void moveZero()
+void TestMoveZero()
 {
   int nums[] = { 3,9,1,0,5,10,7,0,23,12,0 };
   moveZero(nums, sizeof(nums) / sizeof(int));
-  printf(" after moved\n");
   for (int i = 0; i < sizeof(nums) / sizeof(int); i++)
   {
     printf("%d ", nums[i]);

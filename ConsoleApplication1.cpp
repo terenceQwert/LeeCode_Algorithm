@@ -113,14 +113,14 @@ MaxDeepth(TreeNode * root)
 void _MakeTree(TreeNode **tree)
 {
   //              78
-  //           /     \
-  //         22      86
-  //        /  \     /  
-  //       08  59   82
+  //           /      \
+  //         22       86
+  //        /  \      /  
+  //       08  59    82
   //      /    / \
-  //     03   56 71
-  //             /
-  //            62
+  //     03   56  71
+  //              /
+  //             62
   TreeNode *root = NULL;
   *tree = new TreeNode(78);
   root = *tree;
@@ -147,6 +147,7 @@ int main()
   /// add all signle test method
   /// </summary>
   /// <returns></returns>
+  TestMoveZero();
   testCousinBinaryTree();
   testEmpty();
   testBinaryTree();
