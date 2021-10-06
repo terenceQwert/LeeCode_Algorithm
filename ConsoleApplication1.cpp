@@ -1,10 +1,17 @@
 // ConsoleApplication1.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+#include <Windows.h>
 
 #include <iostream>
 #include "TreeNode.h"
 #include "hamming.h"
 #include "recursive.h"
+#include "BinaryTree.h"
+#include "Empty.h"
+#include "ReservedBit.h"
+#include "Prime.h"
+#include "HashTable.h"
+#include "GroupAnagram.h"
 
 #define STR_1 "STRING 1"
 #define STR_2 "STRING 2"
@@ -133,9 +140,21 @@ void _MakeTree(TreeNode **tree)
 
 
 
-
+extern char** g_Table;
 int main()                                       
 {
+  /// <summary>
+  /// add all signle test method
+  /// </summary>
+  /// <returns></returns>
+  testCousinBinaryTree();
+  testEmpty();
+  testBinaryTree();
+
+  StackData();
+  int returnSize = 0;
+  int* returnColumnSizes = NULL;
+  groupAnagrams(g_Table, 6, &returnSize, &returnColumnSizes);
   testHammingAlgorithm();
   DiameterOfBinaryTree();
   LeeCodeBackSpace();
