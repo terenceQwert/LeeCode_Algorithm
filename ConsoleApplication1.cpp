@@ -12,6 +12,7 @@
 #include "Prime.h"
 #include "HashTable.h"
 #include "GroupAnagram.h"
+#include "SimpleQueue.h"
 
 #define STR_1 "STRING 1"
 #define STR_2 "STRING 2"
@@ -20,6 +21,8 @@
 #define INITIALIZE_SIZE 1
 #define FINAL_SIZE      2  
 #define THIRD_SIZE      3
+
+int Fabnacci(int n);
 
 void testMethod()
 {
@@ -147,6 +150,12 @@ int main()
   /// add all signle test method
   /// </summary>
   /// <returns></returns>
+
+
+  testQueue();
+  for( int i =1;i<40;i++)
+    printf( "fabnacci value = %d\n",Fabnacci(i));
+
   TestMoveZero();
   testCousinBinaryTree();
   testEmpty();
