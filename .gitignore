@@ -27,7 +27,11 @@ Debug/hamming.obj
 Debug/recursive.obj
 Debug/ReservedBit.obj
 Debug/Source.obj
+<<<<<<< HEAD
 Debug/bi-dimention_array.obj
 Debug/Searching.obj
 Debug/simpleApp.exe
 Debug/simpleApp.pdb
+=======
+x64/
+>>>>>>> 06dd8a96f78c4bbf1aee33af4bd9a70ee09efd54

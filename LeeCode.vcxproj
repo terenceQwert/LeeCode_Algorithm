@@ -23,7 +23,7 @@
     <ProjectGuid>{43B39AD1-3E8B-4E9E-8D4E-1A7E97E91805}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ConsoleApplication1</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <ProjectName>LeeCode</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -43,7 +43,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -159,6 +159,7 @@
     <ClCompile Include="hamming.cpp" />
     <ClCompile Include="recursive.cpp" />
     <ClCompile Include="ReservedBit.cpp" />
+    <ClCompile Include="SimpleQueue.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="mixed_function.cpp" />
   </ItemGroup>
@@ -171,6 +172,7 @@
     <ClInclude Include="Prime.h" />
     <ClInclude Include="recursive.h" />
     <ClInclude Include="ReservedBit.h" />
+    <ClInclude Include="SimpleQueue.h" />
     <ClInclude Include="TreeNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -8,6 +8,12 @@ using namespace std;
 
 
 
+int Fabnacci(int n)
+{
+  if (n == 1)return 1;
+  if (n == 0) return 0;
+  return Fabnacci(n - 1) + Fabnacci(n - 2);
+}
 
 
 
