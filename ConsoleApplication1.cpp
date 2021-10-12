@@ -13,6 +13,8 @@
 #include "HashTable.h"
 #include "GroupAnagram.h"
 #include "SimpleQueue.h"
+#include "ReversedPolishNotation.h"
+
 
 #define STR_1 "STRING 1"
 #define STR_2 "STRING 2"
