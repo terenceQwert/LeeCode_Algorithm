@@ -3,3 +3,5 @@
 void HandleBeforeRPN();
 
 void HandleRPN();
+void testStrStr();
+
