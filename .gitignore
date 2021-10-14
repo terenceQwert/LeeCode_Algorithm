@@ -38,3 +38,6 @@ x64/
 LeeCode.vcxproj.filters
 Debug/
 mintty.exe.stackdump
+/TestApp/TestApp.vcxproj.user
+/TestApp/TestApp.vcxproj.filters
+/TestApp/TestApp.sln
