@@ -10,8 +10,15 @@ using namespace std;
 
 int Fabnacci(int n)
 {
-  if (n == 1)return 1;
-  if (n == 0) return 0;
+  //
+  // improving performance
+  //
+  if ( (n == 1) || (2 == n) )
+    return 1;
+  else if (n == 0) 
+    return 0;
+  else if (3 == n) 
+    return 2;
   return Fabnacci(n - 1) + Fabnacci(n - 2);
 }
 

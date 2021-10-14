@@ -23,7 +23,7 @@
     <ProjectGuid>{43B39AD1-3E8B-4E9E-8D4E-1A7E97E91805}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ConsoleApplication1</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>LeeCode</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -152,6 +152,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bi-dimention_array.cpp" />
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="duplicatedNums.cpp" />
@@ -160,17 +161,20 @@
     <ClCompile Include="hamming.cpp" />
     <ClCompile Include="recursive.cpp" />
     <ClCompile Include="ReservedBit.cpp" />
+    <ClCompile Include="ReversedPolishNotation.cpp" />
     <ClCompile Include="SimpleQueue.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Fabnacci.cpp" />
     <ClCompile Include="mixed_function.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bi-dimention_array.h" />
     <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="Empty.h" />
     <ClInclude Include="hamming.h" />
     <ClInclude Include="HashTable.h" />
     <ClInclude Include="GroupAnagram.h" />
     <ClInclude Include="Prime.h" />
+    <ClInclude Include="ReversedPolishNotation.h" />
     <ClInclude Include="recursive.h" />
     <ClInclude Include="ReservedBit.h" />
     <ClInclude Include="SimpleQueue.h" />
