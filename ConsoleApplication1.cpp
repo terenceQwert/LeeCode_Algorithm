@@ -141,7 +141,7 @@ void _MakeTree(TreeNode **tree)
 }
 
 
-
+void testDuplicatedNums();
 
 extern char** g_Table;
 int main()                                       
@@ -151,7 +151,7 @@ int main()
   /// </summary>
   /// <returns></returns>
 
-
+  testDuplicatedNums();
   testQueue();
   for( int i =1;i<40;i++)
     printf( "fabnacci value = %d\n",Fabnacci(i));

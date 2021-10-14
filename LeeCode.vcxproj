@@ -154,6 +154,7 @@
   <ItemGroup>
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="ConsoleApplication1.cpp" />
+    <ClCompile Include="duplicatedNums.cpp" />
     <ClCompile Include="empty.cpp" />
     <ClCompile Include="GroupAnagram.cpp" />
     <ClCompile Include="hamming.cpp" />
