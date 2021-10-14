@@ -143,7 +143,7 @@ void _MakeTree(TreeNode **tree)
 }
 
 
-
+void testRevservedBit(int num);
 
 extern char** g_Table;
 int main()                                       
@@ -152,8 +152,10 @@ int main()
   /// add all signle test method
   /// </summary>
   /// <returns></returns>
+  printf("fabnacci %d\n",Fabnacci(3));
 
-
+  testRevservedBit(35);
+  testStrStr();
   testQueue();
   for( int i =1;i<40;i++)
     printf( "fabnacci value = %d\n",Fabnacci(i));

@@ -89,7 +89,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
@@ -160,6 +160,7 @@
     <ClCompile Include="hamming.cpp" />
     <ClCompile Include="recursive.cpp" />
     <ClCompile Include="ReservedBit.cpp" />
+    <ClCompile Include="reverseBit.cpp" />
     <ClCompile Include="ReversedPolishNotation.cpp" />
     <ClCompile Include="SimpleQueue.cpp" />
     <ClCompile Include="Fabnacci.cpp" />
