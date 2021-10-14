@@ -159,3 +159,53 @@ void StackData()
   strcpy_s(g_Table[5], 4, "tan");
 }
 
+bool IsNumber(char ch)
+{
+  if ((ch == '0') ||
+    (ch == '1') ||
+    (ch == '2') ||
+    (ch == '3') ||
+    (ch == '4') ||
+    (ch == '5') ||
+    (ch == '6') ||
+    (ch == '7') ||
+    (ch == '8') ||
+    (ch == '9')
+    )
+    return true;
+  else
+    return false;
+}
+
+
+typedef struct _HashData
+{
+  char loc;
+  char data;
+}HashData, *PHashData;
+
+void testSplitString()
+{
+#define SAMPLE_MATH_ALGORITHM_STRNIG "9+(3-1)*3+ 10/2"
+  HashData item[100]{ 0 };
+  int hashIndex = 0;
+  char * pstr = NULL;
+  pstr = new char[256]{ 0 };
+  strcpy(pstr, SAMPLE_MATH_ALGORITHM_STRNIG);
+  for (int i = 0; i < strlen(pstr); i++)
+  {
+    if (IsNumber(pstr[i]) == false)
+    {
+      item[hashIndex].loc = i;
+      item[hashIndex].data = pstr[i];
+      hashIndex += 1;
+    }
+  }
+  int _start;
+  int _end;
+  hashIndex = 0;
+  for (;item[hashIndex].loc==0;)
+  {
+    
+  }
+}

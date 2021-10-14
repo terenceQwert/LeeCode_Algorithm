@@ -15,6 +15,6 @@ void testRevservedBit(int num)
     index++;
   }
   printf("original str=%s\n", buf0);
-  char* buf1 = strrev(buf0);
+  char* buf1 = _strrev(buf0);
   printf("reversed str=%s\n", buf1);
 }
