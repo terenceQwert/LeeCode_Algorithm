@@ -188,6 +188,7 @@ void testSplitString()
 {
 #define SAMPLE_MATH_ALGORITHM_STRNIG "9+(3-1)*3+ 10/2"
   HashData item[100]{ 0 };
+  
   int hashIndex = 0;
   char * pstr = NULL;
   pstr = new char[256]{ 0 };

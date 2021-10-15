@@ -6,7 +6,11 @@
 using namespace std;
 
 
-
+/// <summary>
+/// in order to speed up fabnacci algorithm, reduce recursive times.
+/// </summary>
+/// <param name="n"></param>
+/// <returns></returns>
 
 int Fabnacci(int n)
 {

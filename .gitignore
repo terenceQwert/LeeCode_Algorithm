@@ -37,3 +37,8 @@ x64/
 >>>>>>> 06dd8a96f78c4bbf1aee33af4bd9a70ee09efd54
 LeeCode.vcxproj.filters
 Debug/
+*.stackdump
+/TestApp/TestApp.vcxproj.user
+/TestApp/TestApp.vcxproj.filters
+/TestApp/TestApp.sln
+LeeCode.vcxproj.orig

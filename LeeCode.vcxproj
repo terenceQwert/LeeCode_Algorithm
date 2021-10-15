@@ -89,7 +89,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
@@ -155,8 +155,7 @@
     <ClCompile Include="bi-dimention_array.cpp" />
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="ConsoleApplication1.cpp" />
-    <ClCompile Include="duplicatedNums.cpp" />
-    <ClCompile Include="empty.cpp" />
+    <ClCompile Include="findSingleNumber.cpp" />
     <ClCompile Include="GroupAnagram.cpp" />
     <ClCompile Include="hamming.cpp" />
     <ClCompile Include="recursive.cpp" />
@@ -167,6 +166,7 @@
     <ClCompile Include="SimpleQueue.cpp" />
     <ClCompile Include="Fabnacci.cpp" />
     <ClCompile Include="mixed_function.cpp" />
+    <ClCompile Include="stringOperation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bi-dimention_array.h" />
