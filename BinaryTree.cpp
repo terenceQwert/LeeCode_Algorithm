@@ -98,3 +98,30 @@ void testCousinBinaryTree()
   bFound = FALSE;
   Depth = _GetDepth(root, 81, & bFound);
 }
+
+int 
+Binary_Search(int *a, int n, int key)
+{
+  int low, high, middle;
+  low = 1;
+  high = n;
+  // [2,3,4,5,6,7,8,9,10,11,12,13]
+  while( low<=high)
+  {
+//    middle = (low + high) / 2;
+    middle = low + (high - low)* (key - a[low]) / (a[high] - a[low]);
+  
+    printf("middle = %d\n", middle);
+    if (key < a[middle])
+    {
+      high = middle -1;
+    }
+    else if (key > a[middle])
+    {
+      low = middle +1;
+    }
+    else
+      return middle;
+  }
+  return 0;
+}

@@ -146,6 +146,50 @@ void _MakeTree(TreeNode **tree)
 void testRevservedBit(int num);
 
 extern char** g_Table;
+
+
+void replaceStringWithAssignment(char * str)
+{
+  char *buffer = NULL;
+  char *SimpleText = (char*)"We are happy";
+  int basic = strlen(SimpleText);
+  char *p1;
+  char *p2;
+  int num=0;
+  // calculate how many space inside target string
+  //
+  for (int i = 0; i < basic; i++)
+  {
+    if (' ' == SimpleText[i])
+      num++;
+  }
+  buffer = new char[basic + (num * 2)];
+  int finalLen = basic + num * 2;
+  p2 = &buffer[finalLen - 1];
+  p1 = &SimpleText[basic - 1];
+  for (int i = basic; i >= 0; i--)
+  {
+    if (' ' == *p1)
+    {
+      *p2 = '0';
+      p2--;
+      *p2 = '2';
+      p2--;
+      *p2 = '%';
+    }
+    else
+    {
+      *p2 = *p1;
+    }
+    p2--;
+    p1--;
+  }
+  printf("--------------\n");
+  printf("original string = %s\n", SimpleText);
+  printf("modified string = %s\n", buffer);
+  printf("--------------\n");
+}
+
 int main()                                       
 {
   /// <summary>
@@ -153,7 +197,20 @@ int main()
   /// </summary>
   /// <returns></returns>
   printf("fabnacci %d\n",Fabnacci(3));
-
+  replaceStringWithAssignment(NULL);
+  int scancode = 0;
+  scanf("%d", &scancode);
+  int InInput = 0;
+#if 0
+  int *InData = new int[16]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+#else
+  int *InData = new int[11]{ 0, 1, 16, 24, 35, 47, 59, 62, 73, 88, 99};
+#endif
+  std::cout << "input a number for searching ";
+  scanf("%d",&InInput);
+  int round = Binary_Search(InData, 16, InInput);
+  printf("find location = %d\n", round);
+  return 0;
   testRevservedBit(35);
   testStrStr();
   testQueue();
