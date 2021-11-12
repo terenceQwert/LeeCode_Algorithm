@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "ReversedPolishNotation.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 
 
@@ -130,8 +131,45 @@ void HandleBeforeRPN()
   }
 }
 
-void HandleRPN()
-
+typedef struct _NumHashTable
 {
+  char i;
+  char ch;
+} NumHashTable, *PNumHashTable;
+
+// #define MATH_STRNIG "9+(3-1)*3+10/2"
+NumHashTable* pNumHashTable = NULL;
+int hIndex=0;
+
+bool IsNumber(char ch)
+{
+  if( (ch=='0') || (ch == '1') || (ch == '2') || (ch == '3') || (ch == '4') || (ch == '5' )|| (ch == '6') || (ch == '7') || (ch == '8') || (ch == '9'))
+    return true;
+  else
+    return false;
+}
+
+void HandleRPN()
+{
+  char* pstr = new char[strlen(MATH_STRNIG)];
+  int i = 0;
+  int nums[100] = { 0 };
+  strcpy(pstr, MATH_STRNIG);
+  pNumHashTable = new NumHashTable[strlen(pstr)]{ 0 };
+  memset(pNumHashTable, 0xff, sizeof(NumHashTable) * strlen(pstr));
+  for (i = 0; i < strlen(pstr); i++)
+  {
+    if (IsNumber(pstr[i]) == false)
+    {
+      pNumHashTable[hIndex].i = i;
+      pNumHashTable[hIndex].ch = pstr[i];
+      hIndex += 1;
+    }
+  }
+  int pos_start = 0;
+  int pos_end = 0;
+  i = 0;
+  pos_end = pNumHashTable[0].i - 0;
 
 }
+

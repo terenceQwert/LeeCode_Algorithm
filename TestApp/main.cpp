@@ -10,7 +10,8 @@ int testItem(char pArray[4])
   printf("pArray = 0x%x\n", pArray[0]);
   return 0;
 }
-int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+int* twoSum(int* nums, int numsSize, int target, int* returnSize)
+{
   int i = 0;
   int* pData = NULL;
   for (i; i < numsSize; i++)
@@ -179,6 +180,24 @@ void TestMulitipleList()
 
 int main()
 {
+  /// <summary>
+  /// int* twoSum(int* nums, int numsSize, int target, int* returnSize)
+  /// </summary>
+  /// <returns></returns>
+  int nums[10] = { 1,2,3,4,5,6,7,8,9,10 };
+  int target = 0;
+  int returnSize = 0;
+  printf("Please input a number for twoSum function:");
+  scanf("%d", &target);
+  int* pNums = twoSum(nums, sizeof(nums) / sizeof(int), target, &returnSize);
+  if (0 != returnSize)
+  {
+    printf("%d = 1st:%d, 2nd:%d\n", target, nums[pNums[0]],  nums[pNums[1]]);
+  }
+  else
+  {
+    printf("not found dictate value \n");
+  }
   TestMulitipleList();
   //
   // first

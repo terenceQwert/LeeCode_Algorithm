@@ -1,8 +1,23 @@
 #include <Windows.h>
 #include <stdio.h>
+enum Status
+{
+  OK,
+  FAIL
+};
+typedef int QElementType;
+#define MAXSIZE 6
+typedef struct
+{
+  QElementType data[MAXSIZE];
+  int front;
+  int rear;
+
+} SqQueue;
 
 #include "SimpleQueue.h"
 
+#if 1
 void EnQueue(LinkQueue * Q, int e)
 {
   QNode * s = (QNode *)malloc(sizeof(QNode));
@@ -21,9 +36,12 @@ bool DeQueue(LinkQueue * Q)
   }
 
 
-  QNode * p = Q->front->next;
+  const QNode * p = Q->front->next;
   
   printf("Dequeue one element, its data = %d\n", p->data);
+  // 
+  // here: p means 'Q->front->next'
+  //
   Q->front->next = Q->front->next->next;
 
   if (p == Q->rear)
@@ -36,7 +54,38 @@ bool DeQueue(LinkQueue * Q)
 //  printf("check the 2nd element is predicted data ? %d\n", Q->front->next->data);
   return true;
 }
+#else
+Status InitQueue(SqQueue* Q)
+{
+  Q->front = 0;
+  Q->rear = 0;
+  return OK;
+}
 
+int QueueLength(SqQueue Q)
+{
+  return (MAXSIZE + Q.rear - Q.front) % MAXSIZE;
+}
+Status EnQueue(SqQueue* Q, QElementType e)
+{
+  if (((Q->rear + 1) % MAXSIZE) == Q->front)
+  {
+    return FAIL;
+  }
+  Q->data[Q->rear] = e;
+  Q->rear = (Q->rear + 1) % MAXSIZE;
+  return OK;
+}
+
+Status DeQueue(SqQueue* Q, QElementType* e)
+{
+  if (Q->front == Q->rear)
+    return FAIL;
+  *e = Q->data[Q->front];
+  Q->front = (Q->front + 1) % MAXSIZE;
+  return OK;
+}
+#endif
 void
 testQueue()
 {

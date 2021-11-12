@@ -25,6 +25,7 @@
 #define THIRD_SIZE      3
 
 int Fabnacci(int n);
+void testMultipletimesNumbers();
 
 void testMethod()
 {
@@ -144,7 +145,7 @@ void _MakeTree(TreeNode **tree)
 
 
 void testRevservedBit(int num);
-
+void HandleRPN();
 extern char** g_Table;
 int main()                                       
 {
@@ -152,11 +153,14 @@ int main()
   /// add all signle test method
   /// </summary>
   /// <returns></returns>
+  testQueue();
+  ULONGLONG tick_start = GetTickCount64();
+  testMultipletimesNumbers();
+  HandleRPN();
   printf("fabnacci %d\n",Fabnacci(3));
-
+  printf(" spending is %d\n", GetTickCount() - tick_start);
   testRevservedBit(35);
   testStrStr();
-  testQueue();
   for( int i =1;i<40;i++)
     printf( "fabnacci value = %d\n",Fabnacci(i));
 
