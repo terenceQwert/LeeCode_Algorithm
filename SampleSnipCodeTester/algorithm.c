@@ -152,3 +152,149 @@ TopologicalSort(PGraphAdjList gL)
 
 
 }
+
+#if 1
+// 2021-12-08
+EdgeNode pNode20[] = {
+  {1,3, NULL},
+  {2,4, NULL},
+  {INFINITY,INFINITY,NULL}
+};
+
+EdgeNode pNode21[] = {
+  {4,6, NULL},
+  {3,5, NULL},
+  {INFINITY,INFINITY,NULL}
+};
+
+EdgeNode pNode22[] = {
+  {5,7, NULL},
+  {3,8, NULL},
+  {INFINITY,INFINITY,NULL}
+};
+
+EdgeNode pNode23[] = {
+  {4,3, NULL},
+  {INFINITY,INFINITY,NULL}
+};
+
+EdgeNode pNode24[] = {
+  {7,4, NULL},
+  {6,9, NULL},
+  {INFINITY,INFINITY,NULL}
+};
+
+EdgeNode pNode25[] = {
+  {7,6, NULL},
+  {INFINITY,INFINITY,NULL}
+};
+
+EdgeNode pNode26[] = {
+  {9,2, NULL},
+  {INFINITY,INFINITY,NULL}
+};
+
+EdgeNode pNode27[] = {
+  {8,5, NULL},
+  {INFINITY,INFINITY,NULL}
+};
+
+EdgeNode pNode28[] = {
+  {9,3, NULL},
+  {INFINITY,INFINITY,NULL}
+};
+
+EdgeNode pNode29[] = {
+  {INFINITY,INFINITY,NULL}
+};
+
+#endif
+
+
+int * etv;
+int *ltv;
+int * stack2;
+int top2;
+
+int
+TopologicalSort2(PGraphAdjList GL)
+{
+  EdgeNode* e;
+  int i, k, gettop;
+  int top = 0;
+  int count = 0;
+
+  int* stack;
+  stack = (int*)malloc(GL->numVertexes * sizeof(int));
+
+  for( i=0;i<GL->numVertexes;i++){
+      if (0 == GL->adjList[i].in)
+        stack[++top] = i;
+  }
+  // initialize to 0
+  top2 = 0;
+  etv = (int*)malloc(GL->numVertexes & sizeof(int)); // the earliest time of event happened.
+  for (i = 0; i < GL->numVertexes; i++)
+  {
+    etv[i] = 0;
+  }
+  stack2 = (int*)malloc(GL->numVertexes * sizeof(int));
+  while (top != 0)
+  {
+    gettop = stack[top--];
+    count++;
+    stack2[++top2] = gettop;// push the vertex into topo queue for storing.
+    for (e = GL->adjList[gettop].firstEdge; e; e = e->next)
+    {
+      k = e->adjvex;
+      if (!(--GL->adjList[k].in))
+      {
+        stack[++top] = k;
+      }
+      //
+      // ask the earliest time of happpened of each vertex.
+      //
+      if (((etv[gettop] + e->weight) > etv[k]))
+        etv[k] = etv[gettop] + e->weight;
+    }
+  }
+  if (count < GL->numVertexes)
+    return -1;
+  else
+    return 0;
+}
+
+void CriticalPath(GraphAdjList * GL) {
+  EdgeNode* e;
+  int i, gettop, k, j;
+  int ete, lte;
+  TopologicalSort2(GL);
+
+  ltv = (int*)malloc(GL->numVertexes * sizeof(int));  // the latest happened time of any of events...
+  for (i = 0; i < GL->numVertexes; i++)
+    ltv[i] = etv[GL->numVertexes - 1];                // initialize this lte array
+  while (top2 != 0)
+  {
+    gettop = stack2[top2--];
+    for (e = GL->adjList[gettop].firstEdge; e; e = e->next)
+    {
+      k = e->adjvex;
+      if (ltv[k] - e->weight < ltv[gettop])
+      {
+        ltv[gettop] = ltv[k] - e->weight;
+      }
+    }
+  }
+  for (j = 0; j < GL->numVertexes; j++) {
+    // calculate ete, lte and key activities
+    for (e = GL->adjList[j].firstEdge; e; e = e->next)
+    {
+      k = e->adjvex;
+      ete = etv[j];                 // the earliest time of this activity
+      lte = ltv[k] - e->weight;     // the last time of this activity
+      if (ete == lte)
+        printf("<v%d, v%d> length:%d , ",
+          GL->adjList[j].data, GL->adjList[k].data, e->weight);
+    }
+  }
+}

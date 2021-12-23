@@ -14,7 +14,7 @@
 #include "GroupAnagram.h"
 #include "SimpleQueue.h"
 #include "ReversedPolishNotation.h"
-
+#include "BiTNode.h"
 
 #define STR_1 "STRING 1"
 #define STR_2 "STRING 2"
@@ -153,6 +153,9 @@ int main()
   /// add all signle test method
   /// </summary>
   /// <returns></returns>
+  /// 
+  /// 
+  initiailzeBiTree();
   testQueue();
   ULONGLONG tick_start = GetTickCount64();
   testMultipletimesNumbers();
