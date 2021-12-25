@@ -154,6 +154,7 @@
   <ItemGroup>
     <ClCompile Include="bi-dimention_array.cpp" />
     <ClCompile Include="BinaryTree.cpp" />
+    <ClCompile Include="build_tree.cpp" />
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="findSingleNumber.cpp" />
     <ClCompile Include="GroupAnagram.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="reverseBit.cpp" />
     <ClCompile Include="ReversedPolishNotation.cpp" />
     <ClCompile Include="Searching.cpp" />
+    <ClCompile Include="SimpleList.cpp" />
     <ClCompile Include="SimpleQueue.cpp" />
     <ClCompile Include="Fabnacci.cpp" />
     <ClCompile Include="mixed_function.cpp" />

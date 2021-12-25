@@ -190,12 +190,15 @@ void replaceStringWithAssignment(char * str)
   printf("--------------\n");
 }
 
+void Build_Test_ListNodeForCPlusPlus();
 int main()                                       
 {
   /// <summary>
   /// add all signle test method
   /// </summary>
   /// <returns></returns>
+
+  Build_Test_ListNodeForCPlusPlus();
   printf("fabnacci %d\n",Fabnacci(3));
   replaceStringWithAssignment(NULL);
   int scancode = 0;
