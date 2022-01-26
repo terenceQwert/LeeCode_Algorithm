@@ -15,6 +15,7 @@
 #include "SimpleQueue.h"
 #include "ReversedPolishNotation.h"
 #include "BiTNode.h"
+#include "AVL_Header.h"
 
 #define STR_1 "STRING 1"
 #define STR_2 "STRING 2"
@@ -144,11 +145,27 @@ void _MakeTree(TreeNode **tree)
 }
 
 
+
 void testRevservedBit(int num);
 void HandleRPN();
 extern char** g_Table;
+
+void findDupilcatedNums()
+{
+  int nums[] = { 2,2,3,5,5,6,6,9,9,11,11 };
+  int num = 0;
+  for (int i = 0; i < sizeof(nums) / sizeof(int); i++)
+  {
+    num ^= nums[i];
+  }
+  printf("num=%d\n", num);
+}
+
+
 int main()                                       
 {
+  findDupilcatedNums();
+  HammingDistanceTestCase();
   /// <summary>
   /// add all signle test method
   /// </summary>

@@ -152,6 +152,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AVLImpl.cpp" />
     <ClCompile Include="bi-dimention_array.cpp" />
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="BiTNode.cpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="findSingleNumber.cpp" />
     <ClCompile Include="GroupAnagram.cpp" />
     <ClCompile Include="hamming.cpp" />
+    <ClCompile Include="HammingDistance.cpp" />
     <ClCompile Include="recursive.cpp" />
     <ClCompile Include="ReservedBit.cpp" />
     <ClCompile Include="reverseBit.cpp" />
@@ -169,6 +171,7 @@
     <ClCompile Include="stringOperation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AVL_Header.h" />
     <ClInclude Include="bi-dimention_array.h" />
     <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="BiTNode.h" />

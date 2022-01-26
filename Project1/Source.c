@@ -1,6 +1,10 @@
-#include <Windows.h>
-#include <stdio.h>
+#define INITGUID
 
+#include <windows.h>
+#include <strsafe.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <cfgmgr32.h>
 typedef struct _Data
 {
   UINT32 m;
@@ -41,7 +45,7 @@ typedef struct {
   int numEdges;
 } GraphAdjList;
 
-#if 1
+#if 0
 void 
 CreateALGraph(GraphAdjList* G)
 {
@@ -77,12 +81,91 @@ CreateALGraph(GraphAdjList* G)
 GraphAdjList g_Al;
 
 int gShortestTable[10][10] = { {0,0} };
+/* 317fc439-3f77-41c8-b09e-08ad63272aa3 */ 
+DEFINE_GUID(GUID_GPIOBUTTONS_LAPTOPSLATE_INTERFACE, 0x317fc439, 0x3f77, 0x41c8, 0xb0, 0x9e, 0x08, 0xad, 0x63, 0x27, 0x2a, 0xa3);
 
-
-
-int main()
+DWORD
+GetDevicePath(
+  _In_ LPGUID InterfaceGuid,
+  _Out_ LPWSTR* DevicePath
+)
 {
-  CreateALGraph(&g_Al);
+  CONFIGRET cmRet = CR_SUCCESS;
+  ULONG interfaceListSize = 0;
+
+  *DevicePath = NULL;
+
+  cmRet = CM_Get_Device_Interface_List_Size_Ex(&interfaceListSize, InterfaceGuid, 0, CM_GET_DEVICE_INTERFACE_LIST_PRESENT, NULL);
+  if (cmRet != CR_SUCCESS) {
+    goto exit;
+  }
+
+  *DevicePath = (LPWSTR)LocalAlloc(LMEM_ZEROINIT, interfaceListSize * sizeof((*DevicePath)[0]));
+  if (NULL == *DevicePath) {
+    cmRet = CR_OUT_OF_MEMORY;
+    goto exit;
+  }
+
+  cmRet = CM_Get_Device_Interface_List_Ex(InterfaceGuid, 0, *DevicePath, interfaceListSize, CM_GET_DEVICE_INTERFACE_LIST_PRESENT, NULL);
+
+exit:
+
+  if (cmRet != CR_SUCCESS) {
+    if (NULL != *DevicePath) {
+      LocalFree(*DevicePath);
+      *DevicePath = NULL;
+    }
+  }
+
+  return CM_MapCrToWin32Err(cmRet, ERROR_UNIDENTIFIED_ERROR);
+}
+
+
+
+int __cdecl ToggleConversionIndicator(
+  __in int argc,
+  __in_ecount(argc) char** argv)
+{
+  LPWSTR DevicePath;
+  HANDLE FileHandle;
+  BOOL b;
+  BYTE buffer;
+  HWND hwnd;
+  MSG msg;
+  //assuming our GetDevicePath method is creating a device path using use SetupDi API
+  b = GetDevicePath((LPGUID)&GUID_GPIOBUTTONS_LAPTOPSLATE_INTERFACE, &DevicePath);
+  printf("DevicePath = %s\n", DevicePath);
+  FileHandle = CreateFile(DevicePath,
+    GENERIC_WRITE,
+    0,
+    NULL,
+    OPEN_EXISTING,
+    0,
+    NULL);
+
+  if (argc > 1) {
+    printf("buffer = 0\n");
+    buffer = 0;
+  }
+  else
+  {
+    printf("buffer = 1\n");
+    buffer = 1;
+  }
+  if (FileHandle == INVALID_HANDLE_VALUE)
+  {
+    printf("create file error with %x", GetLastError());
+    return 0;
+  }
+  WriteFile(FileHandle, &buffer, sizeof(buffer), NULL, NULL);
+  
+  return 0;
+}
+
+int main(int argc, char ** argv)
+{
+  ToggleConversionIndicator(argc, argv);
+//  CreateALGraph(&g_Al);
   Item p;
   memset(&p, 0, sizeof(Item));
   p.k = 1;
