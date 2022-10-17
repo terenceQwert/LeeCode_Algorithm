@@ -177,8 +177,43 @@ void TestMulitipleList()
 
 }
 
+
+int addDigital()
+{
+  unsigned int sum = 0;
+  scanf("%d", &sum);
+
+  do 
+  {
+    sum = sum / 10 + sum % 10;
+  } while (sum >= 10);
+  printf("sum = %d\n", sum);
+  return sum;
+}
+
+int addDigital_2()
+{
+  unsigned int sum = 0;
+  scanf("%d", &sum);
+
+  if (sum == 0)
+    return 0;
+  else if (sum % 9 == 0)
+    return 9;
+  return sum % 9;
+  /*
+  * 9*1 = 9   <-- (0) 1: 1, 2:2
+  * 9*2 = 18  <-- (1) 10: 1, 11 :2
+  * 9*3 = 27  <-- (2) 19: --> 10 --> 1, 20: 2
+  * ...           (3) 28: --> 10 --> 1 
+  * ...
+  */
+}
+
 int main()
 {
+  return addDigital();
+#if 0
   TestMulitipleList();
   //
   // first
@@ -216,7 +251,7 @@ int main()
       finalList = finalList->next;
     }
   }
-  return 0;
-}
+#endif
 
+}
 

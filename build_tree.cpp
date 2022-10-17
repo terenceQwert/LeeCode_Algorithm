@@ -12,7 +12,7 @@ struct BinaryTreeNode
 BinaryTreeNode * ConstructCore(int * startPreorder, int * endPreorder,
   int * startInorder, int *endInorder)
 {
-
+  return NULL;
 }
 
 BinaryTreeNode * Construct(int * preorder, int * inorder, int length)
@@ -24,3 +24,4 @@ BinaryTreeNode * Construct(int * preorder, int * inorder, int length)
   }
   return ConstructCore(preorder, preorder + length - 1, inorder, inorder + length - 1);
 }
+

@@ -191,13 +191,15 @@ void replaceStringWithAssignment(char * str)
 }
 
 void Build_Test_ListNodeForCPlusPlus();
+void Test_str_function();
+
 int main()                                       
 {
   /// <summary>
   /// add all signle test method
   /// </summary>
   /// <returns></returns>
-
+  Test_str_function();
   Build_Test_ListNodeForCPlusPlus();
   printf("fabnacci %d\n",Fabnacci(3));
   replaceStringWithAssignment(NULL);
